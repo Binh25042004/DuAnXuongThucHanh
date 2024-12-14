@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flappy Bird with Solana</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Tổng thể */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #8a6767;
+      height: 100vh;
+      overflow: hidden; /* Đảm bảo không cuộn trang */
+    }
+
+    h3 {
+      margin: 10px 0;
+      font-size: 1.2rem;
+    }
+
+    /* Canvas và Scoreboard nằm ngang */
+    .game-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 20px; /* Khoảng cách giữa canvas và scoreboard */
+      margin-top: 10px;
+    }
+
+    canvas {
+      display: block;
+      background-color: #000;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #scoreboard {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      min-width: 150px;
+    }
+
+    #scoreboard h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    #connect-wallet,
+    #restart-game {
+      margin: 10px 5px;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: white;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    #connect-wallet:hover,
+    #restart-game:hover {
+      background-color: #0056b3;
+    }
+
+    #history {
+      margin-top: 20px;
+      width: 100%;
+      max-width: 300px;
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h3>Flappy Bird</h3>
+
+  <!-- Game và Scoreboard -->
+  <div class="game-container">
+    <canvas id="canvas" width="288" height="512"></canvas>
+
+    <div id="scoreboard">
+      <h2>Điểm: <span id="score">0</span></h2>
+      <button id="connect-wallet"> Kết nối ví</button>
+      
+      <button id="restart-game">Bắt Đầu lại</button>
+  <!-- Lịch sử -->
+      <div id="history">
+        <h3>
+          Lịch sử điểm số</h3>
+        <ul id="score-history"></ul>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/@solana/web3.js/1.86.0/web3.min.js"></script>
+  <script src="flappyBird.js"></script>
+</body>
+</html>
